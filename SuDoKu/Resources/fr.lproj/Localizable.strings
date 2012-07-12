@@ -1,0 +1,71 @@
+/* 
+  Localizable.strings
+  SuDoKu
+
+  Created by Charles-André LEDUC on 20/03/12.
+  Copyright (c) 2012. All rights reserved.
+*/
+
+/* New Puzzle */
+"New Puzzle" = "Nouveau Puzzle";
+/* Settings */
+"Settings" = "Options";
+/* Rules */
+"Rules" = "Principes";
+/* Theme */
+"Theme" = "Thème";
+
+/* Easy difficulty */
+"Beginner" = "Facile";
+/* Normal difficulty */
+"Casual" = "Moyen";
+/* Hard difficulty */
+"Expert" = "Expert";
+/* Extreme difficulty */
+"Master" = "Maitre";
+
+/* Main Menu */
+"Main Menu" = "Menu Premier";
+/* Reset Grid */
+"Reset Grid" = "Effacer Grille";
+
+/* OK */
+"OK" = "OK";
+/* Cancel */
+"Cancel" = "Annuler";
+/* Review */
+"Review" = "Revue";
+/* Hints */
+"Hints" = "Indices";
+
+/* Main Menu Alert Message */
+"Would you like to quit the current puzzle?" = "Voulez-vous quitter ce puzzle ?";
+
+/* End Alert Title */
+"Congratulations" = "Félicitations";
+/* End Alert Title */
+"The puzzle has been solved in" = "Le puzzle a été solutionné en";
+/* Seconds */
+"seconds" = "secondes";
+
+/* Solution Alert Title */
+"Solution" = "Solution";
+/* Puzzle not solved */
+"The puzzle has not been solved" = "Le puzzle n'a pas été solutionné";
+
+/* Reset Grid Alert Title */
+"Start over" = "Nouveau début";
+/* Reset Grid Alert Message */
+"Would you like to reset the grid?" = "Voulez-vous recommencer la grille ?";
+
+/* Achievemnt Unlocked Message */
+"Achievement Unlocked" = "Achèvement débloqué";
+
+
+/* Page One Text */
+"'Sudoku' is a logic-based, combinatorial number-placement puzzle. The objective is to fill a 9×9 grid with digits so that each column, each row, and each of the nine 3×3 sub-grids that compose the grid (also called 'blocks' or 'regions') contains all of the digits from 1 to 9.\n\nCompleted puzzles are always a type of Latin square with an additional constraint on the contents of individual regions. For example, the same single integer may not appear twice in the same 9x9 playing board row or column or in any of the nine 3x3 subregions of the 9x9 playing board.\n\nThe puzzle was popularized in 1986 by the Japanese puzzle company Nikoli under the name 'Sudoku', meaning 'single number', and became an international hit in 2005." = "'Sudoku' est est un jeu en forme de grille défini en 1979 par l’Américain Howard Garns, mais inspiré du carré latin, ainsi que du problème des 36 officiers du mathématicien suisse Leonhard Euler.\n\nLe but du jeu est de remplir la grille avec une série de chiffres tous différents, qui ne se trouvent jamais plus d’une fois sur une même ligne, dans une même colonne ou dans une même sous-grille.\n\nQuelques symboles sont déjà disposés dans la grille, ce qui autorise une résolution progressive du problème complet.\n\nCe puzzle a été popularisé en 1986 par la société japonaise Nikoli sous le nom 'Sudoku', qui signifie 'nombre unique', et connut un succès international dès 2005.";
+
+/* Page Two Text */
+"The objective of the game is to fill all the blank squares in a game with the correct numbers. There are three very simple constraints to follow.\n\nIn a 9 by 9 square Sudoku game:\n\n✓ Every row of 9 numbers must include all digits 1 through 9 in any order\n\n✓ Every column of 9 numbers must include all digits 1 through 9 in any order\n\n✓ Every 3 by 3 subsection of the 9 by 9 square must include all digits 1 through 9" = "L'objective du jeu est de remplir toutes les cases vides avec les bons chiffres. Il y a 3 règles très simples à respecter.\n\nDans le jeu de 9 x 9 cases:\n\n✓ Chaque ligne de 9 cases doit contenir les entiers 1 à 9 dans n'importe quel ordre\n\n✓ Chaque colonne de 9 cases doit contenir les entiers 1 à 9 dans n'importe quel ordre\n\n✓ Chaque sous-section de 3 x 3 des 9 x 9 cases doit contenir les entiers 1 à 9";
+
+
