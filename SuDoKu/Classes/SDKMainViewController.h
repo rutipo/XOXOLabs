@@ -65,7 +65,22 @@ typedef struct {
     BOOL player1Won;
 } MessageGameOver;
 
-@interface SDKMainViewController : UIViewController <UIAlertViewDelegate, GKAchievementViewControllerDelegate, SDKFlipViewControllerDelegate, NSURLConnectionDelegate>
+@protocol TOTouchUIViewDelegate
+
+- (void) uiViewTouched:(BOOL)wasInside;
+
+@end
+
+@interface TOTouchUIView : UIView 
+
+// Properties
+@property (nonatomic, assign) id delegate;
+
+@end
+
+
+@interface SDKMainViewController : UIViewController <UIAlertViewDelegate, GKAchievementViewControllerDelegate, SDKFlipViewControllerDelegate, NSURLConnectionDelegate, TOTouchUIViewDelegate>
+
 {    
     UIView *containerView;
     UIView *mainMenu;
@@ -77,6 +92,7 @@ typedef struct {
     GameState gameState;
     NSURLConnection *connection;
 }
+@property ( nonatomic , strong ) TOTouchUIView * touchView;
 
 + (SDKMainViewController *)sharedController;
 
@@ -92,6 +108,7 @@ typedef struct {
 - (void)userClickFooter:(id) sender;
 - (void)closePopUpView;
 - (void) sendInfo;
+- (void) setRegistered:(BOOL)registered;
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
 
 @end

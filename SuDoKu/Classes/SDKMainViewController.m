@@ -11,6 +11,8 @@
 #import "SDKAlertView.h"
 #import "SDKAppDelegate.h"
 
+static BOOL popUpShown = false;
+static BOOL isRegistered = false;
 
 @interface SDKMainViewController (Private)
 - (void)replaceOldView:(UIView *)oldView withSubView:(UIView *)newView transition:(UIViewAnimationTransition)transition duration:(CFTimeInterval)duration;
@@ -505,14 +507,18 @@
     [self.view addSubview:containerView];
     //=========Footer Code =============================//    
     //Add Footer view to the main app
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 400, 320, 60)];             
+    UIView *footerView;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    {footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
+    }
+    else{footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 400, 320, 60)];}             
     UIImage *backgroundImage = [UIImage imageNamed:@"back_footer.png"];
     footerView.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];  
     footerView.alpha = 0.8;
     
     //add Trophie
-    UIImageView *trophieView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"trophie.jpg"]];
-    trophieView.frame = CGRectMake(0, 0, 50, 60);
+    UIImageView *trophieView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"trophy.png"]];
+    trophieView.frame = CGRectMake(10, 0, 50, 60);
     [footerView addSubview:trophieView];
     
     
@@ -520,8 +526,11 @@
     UILabel *weeklyAward = [[UILabel alloc] initWithFrame:CGRectMake(60, 30, 200, 40)];
     weeklyAward.backgroundColor = [UIColor clearColor];
     weeklyAward.textColor = [UIColor whiteColor];
-    weeklyAward.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:16];
+    weeklyAward.font = [UIFont fontWithName:@"Gotham-Black" size:18];
     weeklyAward.textAlignment = UITextAlignmentLeft;
+    NSLog(@"%@",[UIFont familyNames]);
+    NSLog(@"%@",[UIFont fontNamesForFamilyName:@"Gotham Condensed"]);
+    NSLog(@"%@",[UIFont fontNamesForFamilyName:@"Gotham"]);
     weeklyAward.text = @"Weekly Award Challenge";
     [weeklyAward sizeToFit];
     [footerView addSubview:weeklyAward];
@@ -548,7 +557,7 @@
     UILabel *dailyAward = [[UILabel alloc] initWithFrame:CGRectMake(60, 10, 200, 30)];
     dailyAward.backgroundColor = [UIColor clearColor];
     dailyAward.textColor = [UIColor whiteColor];
-    dailyAward.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:12];
+    dailyAward.font = [UIFont fontWithName:@"Gotham-Medium" size:12];
     dailyAward.textAlignment = UITextAlignmentLeft;
     dailyAward.text = [NSString stringWithFormat:@"%@", daysLeftText];    
     [dailyAward sizeToFit];
@@ -561,74 +570,173 @@
     [self.view addSubview:footerView];   
 }
 
+@synthesize touchView;
 
 - (void) userClickFooter:(id) sender{
     
     //Get their stored email here and show a custom popup according to the user
     //if (email) --> show popupView
     //else -->different popup
-    
-    //Pop up view settings
-    UIView *popUpView = [[UIView alloc] initWithFrame:CGRectMake(20, 50, 280, 190)];
-    popUpView.tag = 890;
-    //UIImage *backgroundImage = [UIImage imageNamed:@"back_footer.png"];
-    //popUpView.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];  
-    popUpView.backgroundColor = [UIColor lightGrayColor];
-    popUpView.alpha = 0.9;
-    popUpView.layer.borderWidth = 2.0;
-    popUpView.layer.borderColor = [[UIColor grayColor] CGColor];
-    popUpView.layer.cornerRadius = 6.0;
-    
-    
-    //Add label with information
-    //Add static text 
-    UILabel *infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 30, 260, 40)];
-    infoLabel.numberOfLines = 0;
-    infoLabel.backgroundColor = [UIColor clearColor];
-    infoLabel.textColor = [UIColor whiteColor];
-    infoLabel.font = [UIFont fontWithName:@"HelveticaNeue-Bold" size:14];
-    infoLabel.textAlignment = UITextAlignmentCenter;
-    infoLabel.lineBreakMode = UILineBreakModeWordWrap;
-    infoLabel.text = @"Top GameCenter Achievers win prizes. Enter your email to participate."; 
-    [popUpView addSubview:infoLabel];
-    
-    //add the later button
-    UIButton *laterButton = [UIButton buttonWithType:UIButtonTypeCustom];  
-    laterButton.backgroundColor = [UIColor redColor];
-    [laterButton setTitle:@"Later" forState:UIControlStateNormal];
-    laterButton.frame = CGRectMake(120, 140, 60, 38);
-    [laterButton addTarget:self action:@selector(closePopUpView) forControlEvents:UIControlEventTouchUpInside]; 
-    //[laterButton sizeToFit];
-    [popUpView addSubview:laterButton];
-    
-    //add send button
-    UIButton *sendButton = [UIButton buttonWithType:UIButtonTypeCustom];   
-    sendButton.backgroundColor = [UIColor redColor];
-    [sendButton setTitle:@"Done" forState:UIControlStateNormal];
-    sendButton.frame = CGRectMake(200, 140, 60, 38);
-    [sendButton addTarget:self action:@selector(sendInfo) forControlEvents:UIControlEventTouchUpInside]; 
-    //[sendButton sizeToFit];
-    [popUpView addSubview:sendButton];
-    
-    //add the UITextField
-    UITextField *emailField = [[UITextField alloc] initWithFrame:CGRectMake(10, 90, 260, 45)];   
-    emailField.delegate = (id) self;
-    emailField.tag = 666;
-    emailField.textColor = [UIColor blackColor];    
-    emailField.font = [UIFont fontWithName:@"Helvetica" size:20.0];     
-    emailField.placeholder = @"Enter your email";            
-    emailField.keyboardType = UIKeyboardTypeDefault;    
-    emailField.returnKeyType = UIReturnKeyDone;        
-    emailField.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0  alpha:1.0];    
-    emailField.layer.borderColor = [[UIColor grayColor] CGColor];    
-    emailField.layer.borderWidth =2.0;    
-    emailField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter; 
-    [popUpView addSubview:emailField];
-    
-    
-    [self.view addSubview:popUpView];    
+    UIView *popUpView;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    {popUpView = [[UIView alloc] initWithFrame:CGRectMake(275, 350, 278, 190)];}
+    else{popUpView = [[UIView alloc] initWithFrame:CGRectMake(20, 50, 278, 190)];}
+    if(!popUpShown){
+        if(!isRegistered){
+        popUpShown = true;
+        //Pop up view settings
+        
+        popUpView.tag = 890;
+        UIImage *backgroundImage = [UIImage imageNamed:@"popupbg.png"];
+        popUpView.backgroundColor = [[UIColor alloc] initWithPatternImage:backgroundImage];  
+        //popUpView.backgroundColor = [UIColor lightGrayColor];
+        popUpView.alpha = 0.9;
+        //popUpView.layer.borderWidth = 2.0;
+        //popUpView.layer.borderColor = [[UIColor grayColor] CGColor];
+        //popUpView.layer.cornerRadius = 6.0;
+            
+            touchView = [[TOTouchUIView alloc ] initWithFrame:CGRectMake(20, 50, 280, 190) ];
+            [self.view addSubview:touchView ];
+            [touchView setDelegate:self ];
+        
+        UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closePopUpView:)];
+        [recognizer setNumberOfTapsRequired:1];
+        recognizer.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
+        [popUpView.window addGestureRecognizer:recognizer];
+        
+        
+        //Add label with information
+        //Add static text 
+        UILabel *infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 30, 260, 40)];
+        infoLabel.numberOfLines = 0;
+        infoLabel.backgroundColor = [UIColor clearColor];
+        infoLabel.textColor = [UIColor whiteColor];
+        infoLabel.font = [UIFont fontWithName:@"GothamRounded-Medium" size:12];
+        infoLabel.textAlignment = UITextAlignmentCenter;
+        infoLabel.lineBreakMode = UILineBreakModeWordWrap;
+        infoLabel.text = @"Top GameCenter Achievers win prizes. Enter your email to participate."; 
+        [popUpView addSubview:infoLabel];
+        
+        //add the later button
+        UIButton *laterButton = [UIButton buttonWithType:UIButtonTypeCustom];  
+        laterButton.backgroundColor = [UIColor clearColor];
+        [laterButton setTitle:@"Later" forState:UIControlStateNormal];
+        laterButton.titleLabel.font = [UIFont fontWithName:@"GothamRounded-Medium" size:12];
+        laterButton.frame = CGRectMake(150, 150, 60, 38);
+        [laterButton addTarget:self action:@selector(closePopUpView) forControlEvents:UIControlEventTouchUpInside]; 
+        //[laterButton sizeToFit];
+        [popUpView addSubview:laterButton];
+        
+        //add send button
+        UIButton *sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [sendButton.layer setCornerRadius:10.0f];
+//        [sendButton.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+//        [sendButton.layer setBorderWidth:1.5f];
+//        [sendButton.layer setShadowColor:[UIColor blackColor].CGColor];
+//        [sendButton.layer setShadowOpacity:0.8];
+//        [sendButton.layer setShadowRadius:3.0];
+//        [sendButton.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
+        //sendButton.backgroundColor = [UIColor colorWithRed:0.12 green:0.34 blue:0.87 alpha:1.0];
+        UIImage *backgroundSendImage = [UIImage imageNamed:@"DoneButton.png"];
+        sendButton.backgroundColor = [[UIColor alloc] initWithPatternImage:backgroundSendImage]; 
+        //[sendButton setTitleEdgeInsets:UIEdgeInsetsMake(3.0, 4.0, 0.0, 0.0)];
+        //[sendButton setTitle:@"Done" forState:UIControlStateNormal];
+        //sendButton.titleLabel.font = [UIFont fontWithName:@"GothamRounded-Medium" size:16];
+        sendButton.frame = CGRectMake(200, 140, 60, 38);
+        [sendButton addTarget:self action:@selector(sendInfo) forControlEvents:UIControlEventTouchUpInside]; 
+        
+        //[sendButton sizeToFit];
+        [popUpView addSubview:sendButton];
+        
+        //add the UITextField
+        UITextField *emailField = [[UITextField alloc] initWithFrame:CGRectMake(10, 90, 260, 45)];   
+        emailField.delegate = (id) self;
+        emailField.tag = 666;
+        emailField.textColor = [UIColor blackColor];    
+        emailField.font = [UIFont fontWithName:@"GothamRounded-Medium" size:14];    
+        emailField.placeholder = @"Enter your email";            
+        emailField.keyboardType = UIKeyboardTypeDefault;    
+        emailField.returnKeyType = UIReturnKeyDone;        
+        emailField.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0  alpha:1.0];    
+        emailField.layer.borderColor = [[UIColor grayColor] CGColor];    
+        emailField.layer.borderWidth =2.0;    
+        emailField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter; 
+        [popUpView addSubview:emailField];
+        [self.view addSubview:popUpView]; 
+        }
+        else {
+            popUpShown = true;
+            //Pop up view settings
+            popUpView.tag = 890;
+            UIImage *backgroundImage = [UIImage imageNamed:@"popupbg.png"];
+            popUpView.backgroundColor = [[UIColor alloc] initWithPatternImage:backgroundImage];  
+            //popUpView.backgroundColor = [UIColor lightGrayColor];
+            popUpView.alpha = 0.9;
+            //popUpView.layer.borderWidth = 2.0;
+            //popUpView.layer.borderColor = [[UIColor grayColor] CGColor];
+            //popUpView.layer.cornerRadius = 6.0;
+            
+            
+            touchView = [[TOTouchUIView alloc ] initWithFrame:CGRectMake(20, 50, 280, 190) ];
+            [self.view addSubview:touchView ];
+            [touchView setDelegate:self ];
+            
+//            UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closePopUpView:)];
+//            [recognizer setNumberOfTapsRequired:1];
+//            recognizer.cancelsTouchesInView = NO; //So the user can still interact with controls in the modal view
+//            [popUpView.window addGestureRecognizer:recognizer];
+//            
+            UILabel *infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 30, 260, 40)];
+            infoLabel.numberOfLines = 2;
+            infoLabel.backgroundColor = [UIColor clearColor];
+            infoLabel.textColor = [UIColor whiteColor];
+            infoLabel.font = [UIFont fontWithName:@"Gotham-Black" size:16];
+            infoLabel.textAlignment = UITextAlignmentCenter;
+            infoLabel.lineBreakMode = UILineBreakModeWordWrap;
+            infoLabel.text = @"Royal Sudoku is holding a Weekly Award Challenge"; 
+            [popUpView addSubview:infoLabel];
+            
+            UILabel *secondLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 75, 260, 60)];
+            secondLabel.numberOfLines = 3;
+            secondLabel.backgroundColor = [UIColor clearColor];
+            secondLabel.textColor = [UIColor whiteColor];
+            secondLabel.font = [UIFont fontWithName:@"Gotham-Black" size:12];
+            secondLabel.textAlignment = UITextAlignmentCenter;
+            secondLabel.lineBreakMode = UILineBreakModeWordWrap;
+            secondLabel.text = @"Top GameCenter Achievements and Leaderboards can now award physical prizes"; 
+            [popUpView addSubview:secondLabel];
+            
+            UIButton *sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            UIImage *backgroundSendImage = [UIImage imageNamed:@"greenbutton.png"];
+            sendButton.backgroundColor = [[UIColor alloc] initWithPatternImage:backgroundSendImage]; 
+            sendButton.frame = CGRectMake(58, 140, 180, 21);
+            [sendButton setTitle:@"Play now to win the weekly prize!" forState:UIControlStateNormal];
+            sendButton.titleLabel.font = [UIFont fontWithName:@"Gotham-Black" size:10];
+            [sendButton addTarget:self action:@selector(linkButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+            [popUpView addSubview:sendButton];
+            [self.view addSubview:popUpView];
+        }
+        
+         
+    }
     
 }
+
+-(IBAction)linkButtonClick:(id)sender {
+    NSString* launchUrl = @"http://loopjoy.com";
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: launchUrl]];
+    [self closePopUpView];
+}
+
+- (void) uiViewTouched:(BOOL)wasInside
+{
+    if( wasInside ){}
+        // Your code for inside touches...
+        else
+            // Your code for outside touches...
+        {[self closePopUpView];}
+}
+
 
 - (void) sendInfo {
     
@@ -641,15 +749,16 @@
         
     } else {
         
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://livetabbed.com"]];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://loopjoy.com/users"]];
         GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
         NSString *playerID = localPlayer.playerID;
         
         
         [request setHTTPMethod:@"POST"];
-        [request setValue:@"text/xml" forHTTPHeaderField:@"Content-type"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
         
-        NSString *xmlString = @"<data><item>Item 1</item><item>Item 2</item></data>";
+        NSString *xmlString = [NSString stringWithFormat:@"{ \"user\": { \"email\": \"%@\", \"gamecenter_id\": \"%@\", \"facebook_id\": \"none\" } }",emailString,playerID];
+        NSLog(@"%@",xmlString);
         
         [request setValue:[NSString stringWithFormat:@"%d",[xmlString length]] forHTTPHeaderField:@"Content-length"];
         
@@ -669,6 +778,7 @@
 
 - (void) closePopUpView {
     
+    popUpShown = false;
     UIView *thePopUp = [self.view viewWithTag:890];
     [thePopUp removeFromSuperview];
     
@@ -706,6 +816,7 @@
         //Send the emailString to the back end now!
         NSLog(@"Correct email");
         [textField resignFirstResponder];
+        [self sendInfo];
         [self closePopUpView];
         
     }
@@ -713,6 +824,9 @@
     return NO;
 }
 
+- (void) setRegistered:(BOOL)registration {
+    isRegistered = registration;
+}
 
 - (void)viewDidUnload
 {
@@ -784,4 +898,23 @@
     return aButton;
 }
 
+@end
+
+@implementation TOTouchUIView
+
+#pragma mark - Synthesize
+@synthesize delegate;
+
+#pragma mark - Touches
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
+{
+    if( point.x > 0 && point.x < self.frame.size.width && point.y > 0 && point.y < self.frame.size.height )
+    {
+        [delegate uiViewTouched:YES ];
+        return YES;
+    }
+    
+    [delegate uiViewTouched:NO ];
+    return NO;
+}
 @end

@@ -39,13 +39,14 @@ static inline BOOL IsGameCenterAPIAvailable();
 
 
 
-@interface SDKAppDelegate : NSObject <UIAlertViewDelegate,UIApplicationDelegate, GKMatchmakerViewControllerDelegate, GKMatchDelegate> {
+@interface SDKAppDelegate : NSObject <UIAlertViewDelegate,UIApplicationDelegate, GKMatchmakerViewControllerDelegate, GKMatchDelegate, NSURLConnectionDelegate> {
     UIViewController *presentingViewController;
     UIAlertView *alertWithYesNoButtons;
     GKMatch *match;
     BOOL matchStarted;
     NSMutableDictionary *playersDict;
     id <SDKAppDelegate> delegate;
+    NSURLConnection *connection;
 }
 
 @property (retain) UIViewController *presentingViewController;

@@ -44,7 +44,28 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>vaground.ttf</string>
+		<string>GOTHAMCONDENSED-BOLD.OTF</string>
+		<string>GOTHAMCONDENSED-BOOK.OTF</string>
+		<string>GOTHAMCONDENSED-LIGHT.OTF</string>
+		<string>GOTHAMCONDENSED-MEDIUM.OTF</string>
+		<string>GOTHAMROUNDED-LIGHTITALIC.OTF</string>
+		<string>GOTHAMROUNDED-MEDIUM.OTF</string>
+		<string>GOTHAMROUNDED-MEDIUMITALIC.OTF</string>
+		<string>Gotham-Black.ttf</string>
 		<string>JAPAB.TTF</string>
+		<string>gothamblack.otf</string>
+		<string>gothamblackitalic.otf</string>
+		<string>gothambold.otf</string>
+		<string>gothambolditalic.otf</string>
+		<string>gothambook.otf</string>
+		<string>gothambookitalic.otf</string>
+		<string>gothamextralight.otf</string>
+		<string>gothamextralightitalic.otf</string>
+		<string>gothamlight.otf</string>
+		<string>gothamlightitalic.otf</string>
+		<string>gothammedium.otf</string>
+		<string>gothammediumitalic.otf</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

@@ -239,15 +239,40 @@ static SDKAppDelegate *sharedHelper = nil;
     GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
     
     [localPlayer authenticateWithCompletionHandler:^(NSError *error)
-    {
+     {
         if (localPlayer.isAuthenticated)
         {
+            NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://loopjoy.com/users/search?gamecenter_id=%@",localPlayer.playerID]]];
             // Perform additional tasks for the authenticated player.
+            //[[SDKMainViewController sharedController] ];
+            [request setHTTPMethod:@"GET"];
+            
+            connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+            //Send the emailString to the back end now!
+            //NSLog(@"Correct email %@",playerID);
+            
             [self loadAchievements];
             [self retrieveAchievementMetadata];
+            
         }
     }];
+    
 }
+
+-   (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)theData{
+    NSString *result = [[NSString alloc] initWithData:theData encoding:NSUTF8StringEncoding];
+    NSLog(@"String sent from server %@",result);
+    if([result isEqualToString:@"NO"]){
+        [[SDKMainViewController sharedController] setRegistered:FALSE];
+        NSLog(@"String set false");
+    }
+    else{
+        [[SDKMainViewController sharedController] setRegistered:TRUE];
+        NSLog(@"String set True");
+    }
+    
+}
+
 
 - (void)findMatchWithMinPlayers:(int)minPlayers maxPlayers:(int)maxPlayers   
                  viewController:(UIViewController *)viewController 
