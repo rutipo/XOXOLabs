@@ -9,6 +9,8 @@
 #import "LJStorePopUpView.h"
 #import "LJMainViewController.h"
 #import "PayPal.h"
+#import "PayPalPayment.h"
+#import "LJNetworkService.h"
 
 @implementation LJStorePopUpView
 
@@ -17,7 +19,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        UITextField *textField;
+        //UITextField *textField;
         UILabel *label;
         CGFloat yPos;
         int rowCount = 0;
@@ -25,8 +27,8 @@
         
         
         //Initialize Form View
-        formView = [[UIView alloc] initWithFrame:CGRectMake(15,30,280,420)];
-        UIImage *backgroundImage = [UIImage imageNamed:@"form_background.png"];
+        formView = [[UIView alloc] initWithFrame:CGRectMake(15,60,280,320)];
+        UIImage *backgroundImage = [UIImage imageNamed:@"form_bg.png"];
         formView.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
         formView.alpha = 1;
         
@@ -39,29 +41,14 @@
         label.backgroundColor = [UIColor clearColor];
         [formView addSubview:label];
         
-        
-        //LoopJoy Dotted Line Spacer
-        UIView *spacerView = [[UIView alloc] initWithFrame:CGRectMake(20,50,240,10)];
-        backgroundImage = [UIImage imageNamed:@"buy_menu_dropshadow.png"];
-        spacerView.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
-        spacerView.alpha = 1;
-        [formView addSubview:spacerView];
-        
-        
         //LoopJoy Shirt and Price Tag
-        UIView *shirtView = [[UIView alloc] initWithFrame:CGRectMake(60,60,75,95)];
-        backgroundImage = [UIImage imageNamed:@"loopjoy_shirt.png"];
+        UIView *shirtView = [[UIView alloc] initWithFrame:CGRectMake(80,60,131,129)];
+        backgroundImage = [UIImage imageNamed:@"pop_over_tshirt.png"];
         shirtView.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
         shirtView.alpha = 1;
         [formView addSubview:shirtView];
         
-        UIView *priceTagView = [[UIView alloc] initWithFrame:CGRectMake(160,70,82,92)];
-        backgroundImage = [UIImage imageNamed:@"price_tag.png"];
-        priceTagView.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
-        priceTagView.alpha = 1;
-        [formView addSubview:priceTagView];
-        
-    
+        rowCount ++;
         yPos = round((40. * rowCount) + heightOffset + 10);
         
         //LoopJoy Size Tag & Button
@@ -73,132 +60,46 @@
         label.backgroundColor = [UIColor clearColor];
         [formView addSubview:label];
         
-        sizeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        sizeButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [sizeButton addTarget:self action:@selector(displayPicker) forControlEvents:UIControlEventTouchUpInside];
-        sizeButton.frame = CGRectMake(115,yPos + 3,100,24);
+        sizeButton.frame = CGRectMake(115,yPos,126,31);
         [sizeButton setTitle:@"Pick a size | ▾" forState:UIControlStateNormal];
-        sizeButton.titleLabel.textColor = [UIColor blackColor];
-        sizeButton.titleLabel.font = [UIFont systemFontOfSize:14.];
-        sizeButton.backgroundColor = [UIColor clearColor];
+        sizeButton.titleLabel.textColor = [UIColor whiteColor];
+        sizeButton.titleLabel.backgroundColor = [UIColor clearColor];
+        sizeButton.titleLabel.font = [UIFont fontWithName:@"Gotham" size:14];
+        sizeButton.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"size_background.png"]];
         sizeButton.titleLabel.textAlignment = UITextAlignmentRight;
         [formView addSubview:sizeButton];
         
         rowCount++;
         
+        [PayPal initializeWithAppID:@"APP-80W284485P519543T" forEnvironment:ENV_SANDBOX];
+        [PayPal getPayPalInst].shippingEnabled = true;
+        UIButton *button = [[PayPal getPayPalInst] getPayButtonWithTarget:self andAction:@selector(payWithPayPal) andButtonType:BUTTON_194x37];
         
-        //LJStoreSizePickerView *pickerView = [[LJStoreSizePickerView alloc] initWithFrame:CGRectMake(115,yPos,150,30)];
-        //[formView addSubview:pickerView];
+        CGRect frame = button.frame;
+        frame.origin.x = round((formView.frame.size.width - button.frame.size.width) / 2.);
+        frame.origin.y = round(yPos + button.frame.size.height/2 + 10);
+        button.frame = frame;
+        [formView addSubview:button];
+    
         
-        
-        
-        //LoopJoy Ship-To Text & Button
-        yPos = round((40. * rowCount) + heightOffset);
-        label = [[UILabel alloc] initWithFrame:CGRectMake(0, yPos, 110, 30)];
-        label.text = @"Ship To:";
-        label.textColor = [UIColor whiteColor];
-        label.font = [UIFont systemFontOfSize:14.];
-        label.textAlignment = UITextAlignmentRight;
-        label.backgroundColor = [UIColor clearColor];
-        [formView addSubview:label];
-        
-        textField = [[UITextField alloc] initWithFrame:CGRectMake(115, yPos, 150, 30)];
-        textField.tag = STREET_ADDRESS_FIELD_TAG;
-        textField.placeholder = @"123 Apple Street";
-        textField.font = [UIFont systemFontOfSize:14.];
-        textField.borderStyle = UITextBorderStyleRoundedRect;
-        textField.delegate = self;
-        textField.keyboardType =UIKeyboardTypeDefault;
-        textField.autocorrectionType = UITextAutocorrectionTypeNo;
-        textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-        textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        [formView addSubview:textField];
-        rowCount++;
-        
-        //City Field
-        yPos = round((40. * rowCount) + heightOffset);
-        textField = [[UITextField alloc] initWithFrame:CGRectMake(115, yPos, 90, 30)];
-        textField.tag = CITY_FIELD_TAG;
-        textField.placeholder = @"City";
-        textField.font = [UIFont systemFontOfSize:14.];
-        textField.borderStyle = UITextBorderStyleRoundedRect;
-        textField.delegate = self;
-        textField.keyboardType =UIKeyboardTypeDefault;
-        textField.autocorrectionType = UITextAutocorrectionTypeNo;
-        textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-        textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        [formView addSubview:textField];
-        
-        //State Field
-        textField = [[UITextField alloc] initWithFrame:CGRectMake(115 + 100, yPos, 50, 30)];
-        textField.tag = STATE_FIELD_TAG;
-        textField.placeholder = @"State";
-        textField.font = [UIFont systemFontOfSize:14.];
-        textField.borderStyle = UITextBorderStyleRoundedRect;
-        textField.delegate = self;
-        textField.keyboardType =UIKeyboardTypeDefault;
-        textField.autocorrectionType = UITextAutocorrectionTypeNo;
-        textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-        textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        [formView addSubview:textField];
-        rowCount++;
-        
-        //Zip Field
-        yPos = round((40. * rowCount) + heightOffset);
-        textField = [[UITextField alloc] initWithFrame:CGRectMake(115, yPos, 90, 30)];
-        textField.tag = ZIP_FIELD_TAG;
-        textField.placeholder = @"Zip Code";
-        textField.font = [UIFont systemFontOfSize:14.];
-        textField.borderStyle = UITextBorderStyleRoundedRect;
-        textField.delegate = self;
-        textField.keyboardType = UIKeyboardTypeNumberPad;
-        textField.autocorrectionType = UITextAutocorrectionTypeNo;
-        textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-        textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        [formView addSubview:textField];
-        rowCount++;
-        
-        //Email Label & Field
-        yPos = round((40. * rowCount) + heightOffset);
-        label = [[UILabel alloc] initWithFrame:CGRectMake(0, yPos, 110, 30)];
-        label.text = @"Email:";
-        label.textColor = [UIColor whiteColor];
-        label.font = [UIFont systemFontOfSize:14.];
-        label.textAlignment = UITextAlignmentRight;
-        label.backgroundColor = [UIColor clearColor];
-        [formView addSubview:label];
-        
-        textField = [[UITextField alloc] initWithFrame:CGRectMake(115, yPos, 150, 30)];
-        textField.tag = EMAIL_FIELD_TAG;
-        textField.placeholder = @"you@example.com";
-        textField.font = [UIFont systemFontOfSize:14.];
-        textField.borderStyle = UITextBorderStyleRoundedRect;
-        textField.delegate = self;
-        textField.keyboardType =UIKeyboardTypeEmailAddress;
-        textField.autocorrectionType = UITextAutocorrectionTypeNo;
-        textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-        textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        [formView addSubview:textField];
-        
-        rowCount ++;
-        
-        yPos = round((40. * rowCount) + heightOffset);
-        UIButton *buyButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [buyButton addTarget:self action:@selector(dismissForm) forControlEvents:UIControlEventTouchUpInside];
-        buyButton.frame = CGRectMake(115,yPos + 3,100,30);
-        [buyButton setTitle:@"Buy" forState:UIControlStateNormal];
-        buyButton.titleLabel.font = [UIFont fontWithName:@"Gotham-Black" size:12];
-        buyButton.titleLabel.backgroundColor = [UIColor clearColor];
-        //buyButton.titleLabel.textColor = [UIColor blackColor];
-        //buyButton.titleLabel.font = [UIFont systemFontOfSize:14.];
-        buyButton.backgroundColor = [UIColor clearColor];
-        buyButton.titleLabel.textAlignment = UITextAlignmentCenter;
-        [formView addSubview:buyButton];
+    
         
         
         [self addSubview:formView];
         
     }
     return self;
+}
+
+-(void)payWithPayPal{
+    PayPalPayment *payment = [[PayPalPayment alloc] init];
+    payment.subTotal = [NSDecimalNumber decimalNumberWithString:@"10"];
+    payment.recipient = @"jimbea_1343242678_biz@gmail.com";
+    payment.merchantName = @"LoopJoy";
+    payment.paymentCurrency = @"USD";
+    [[PayPal getPayPalInst] checkoutWithPayment:payment];
 }
 
 #pragma mark TextField Delegate Implementation
@@ -286,16 +187,21 @@
     
 }
 
+- (void)paymentSuccessWithKey:(NSString *)payKey andStatus:(PayPalPaymentStatus)paymentStatus{[self dismissForm];}
+- (void)paymentFailedWithCorrelationID:(NSString *)correlationID{[self dismissForm];}
+- (void)paymentCanceled{[self dismissForm];}
+- (void)paymentLibraryExit{[self dismissForm];}
+
 - (void)dismissForm{
     NSString *messageString = [NSString stringWithFormat:@"Thanks for your Order! You will recieve a confirmation email shortly"]; 
-    LJNetworkDelegate *networkDelegate = [[LJNetworkDelegate alloc] initWithAddress:@"http://localhost:3000/orders" :URLRequestPOST delegate:self];
+    LJNetworkService *networkService = [[LJNetworkService alloc] initWithAddress:@"https://localhost:3000/orders" :URLRequestPOST delegate:self];
     
     //{"commit"=>"Create Order", "authenticity_token"=>"7zAlq0lQGtyyD+UVG/pOfViyLGYljWNjykDzpp1SxGQ=", "utf8"=>"✓", "order"=>{"price"=>"1", "street_address"=>"My", "state"=>"Friends", "country"=>"Better", "city"=>"Are", "customer_id"=>"1", "zipcode"=>"1"}}
     
     NSString *order = [NSString stringWithFormat:@"{\"commit\":\"Create Order\",\"order\":{\"price\":\"%@\",\"street_address\":\"%@\",\"state\":\"%@\",\"country\":\"%@\",\"city\":\"%@\",\"zipcode\":\"%@\"}}",@"1",streetAddressFieldText,stateFieldText,@"USA",cityFieldText,zipFieldText];  
     NSLog(@"%@",order);
-    [networkDelegate setBody:order];
-    [networkDelegate execute];
+    [networkService setBody:order];
+    [networkService execute];
     
     UIAlertView *alertGameStarting = [[UIAlertView alloc]
                          initWithTitle: @"Thanks!"
