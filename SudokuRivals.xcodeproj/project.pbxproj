@@ -8,10 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4109E9D615BF5718007A7B43 /* NSString+URLEncodedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4109E9D515BF5718007A7B43 /* NSString+URLEncodedString.m */; };
+		411807BF15C1C6DD00FB5065 /* crt.der in Resources */ = {isa = PBXBuildFile; fileRef = 411807BE15C1C6DD00FB5065 /* crt.der */; };
 		41218F5115C04C07003700F1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41218F5015C04C07003700F1 /* Security.framework */; };
 		41218F5315C04C12003700F1 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 41218F5215C04C12003700F1 /* libxml2.dylib */; };
 		41218F5515C04C23003700F1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 41218F5415C04C23003700F1 /* libz.dylib */; };
 		41218F6215C050C2003700F1 /* libPayPalMPL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41218F5615C050C2003700F1 /* libPayPalMPL.a */; };
+		41218F6515C064AC003700F1 /* pop_over_tshirt.png in Resources */ = {isa = PBXBuildFile; fileRef = 41218F6415C064AC003700F1 /* pop_over_tshirt.png */; };
+		41218F6715C06688003700F1 /* size_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 41218F6615C06688003700F1 /* size_background.png */; };
+		41218F7015C07B3A003700F1 /* form_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 41218F6F15C07B3A003700F1 /* form_bg.png */; };
 		4133F31015BDEBB8001BDA33 /* buynow.png in Resources */ = {isa = PBXBuildFile; fileRef = 4133F30F15BDEBB8001BDA33 /* buynow.png */; };
 		4177D20915B70E8F00E4A543 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4177D20815B70E8F00E4A543 /* UIKit.framework */; };
 		4177D20B15B70E8F00E4A543 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4177D20A15B70E8F00E4A543 /* Foundation.framework */; };
@@ -25,7 +29,7 @@
 		41DB990415B7BA55001B8E17 /* LJAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DB98F315B7BA55001B8E17 /* LJAlertView.m */; };
 		41DB990515B7BA55001B8E17 /* LJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DB98F515B7BA55001B8E17 /* LJAppDelegate.m */; };
 		41DB990615B7BA55001B8E17 /* LJFlipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DB98F715B7BA55001B8E17 /* LJFlipViewController.m */; };
-		41DB990815B7BA55001B8E17 /* LJNetworkDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DB98FB15B7BA55001B8E17 /* LJNetworkDelegate.m */; };
+		41DB990815B7BA55001B8E17 /* LJNetworkService.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DB98FB15B7BA55001B8E17 /* LJNetworkService.m */; };
 		41DB990915B7BA55001B8E17 /* LJPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DB98FD15B7BA55001B8E17 /* LJPopupView.m */; };
 		41DB990A15B7BA55001B8E17 /* LJSDKGameBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DB98FF15B7BA55001B8E17 /* LJSDKGameBoard.m */; };
 		41DB990B15B7BA55001B8E17 /* LJSDKSolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DB990115B7BA55001B8E17 /* LJSDKSolver.m */; };
@@ -118,6 +122,7 @@
 /* Begin PBXFileReference section */
 		4109E9D415BF5718007A7B43 /* NSString+URLEncodedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+URLEncodedString.h"; path = "Classes/NSString+URLEncodedString.h"; sourceTree = "<group>"; };
 		4109E9D515BF5718007A7B43 /* NSString+URLEncodedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+URLEncodedString.m"; path = "Classes/NSString+URLEncodedString.m"; sourceTree = "<group>"; };
+		411807BE15C1C6DD00FB5065 /* crt.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = crt.der; path = SudokuRivals/Resources/Certificates/crt.der; sourceTree = SOURCE_ROOT; };
 		41218F5015C04C07003700F1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		41218F5215C04C12003700F1 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		41218F5415C04C23003700F1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -133,6 +138,9 @@
 		41218F5F15C050C2003700F1 /* PayPalPreapprovalDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPalPreapprovalDetails.h; path = Classes/Paypal/PayPalPreapprovalDetails.h; sourceTree = "<group>"; };
 		41218F6015C050C2003700F1 /* PayPalReceiverAmounts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPalReceiverAmounts.h; path = Classes/Paypal/PayPalReceiverAmounts.h; sourceTree = "<group>"; };
 		41218F6115C050C2003700F1 /* PayPalReceiverPaymentDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPalReceiverPaymentDetails.h; path = Classes/Paypal/PayPalReceiverPaymentDetails.h; sourceTree = "<group>"; };
+		41218F6415C064AC003700F1 /* pop_over_tshirt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pop_over_tshirt.png; sourceTree = "<group>"; };
+		41218F6615C06688003700F1 /* size_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = size_background.png; sourceTree = "<group>"; };
+		41218F6F15C07B3A003700F1 /* form_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = form_bg.png; sourceTree = "<group>"; };
 		4133F30F15BDEBB8001BDA33 /* buynow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buynow.png; sourceTree = "<group>"; };
 		4177D20415B70E8F00E4A543 /* SudokuRivals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SudokuRivals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4177D20815B70E8F00E4A543 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -161,8 +169,8 @@
 		41DB98F715B7BA55001B8E17 /* LJFlipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LJFlipViewController.m; path = Classes/LJFlipViewController.m; sourceTree = "<group>"; };
 		41DB98F815B7BA55001B8E17 /* LJMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LJMainViewController.h; path = Classes/LJMainViewController.h; sourceTree = "<group>"; };
 		41DB98F915B7BA55001B8E17 /* LJMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LJMainViewController.m; path = Classes/LJMainViewController.m; sourceTree = "<group>"; };
-		41DB98FA15B7BA55001B8E17 /* LJNetworkDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LJNetworkDelegate.h; path = Classes/LJNetworkDelegate.h; sourceTree = "<group>"; };
-		41DB98FB15B7BA55001B8E17 /* LJNetworkDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LJNetworkDelegate.m; path = Classes/LJNetworkDelegate.m; sourceTree = "<group>"; };
+		41DB98FA15B7BA55001B8E17 /* LJNetworkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LJNetworkService.h; path = Classes/LJNetworkService.h; sourceTree = "<group>"; };
+		41DB98FB15B7BA55001B8E17 /* LJNetworkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LJNetworkService.m; path = Classes/LJNetworkService.m; sourceTree = "<group>"; };
 		41DB98FC15B7BA55001B8E17 /* LJPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LJPopupView.h; path = Classes/LJPopupView.h; sourceTree = "<group>"; };
 		41DB98FD15B7BA55001B8E17 /* LJPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LJPopupView.m; path = Classes/LJPopupView.m; sourceTree = "<group>"; };
 		41DB98FE15B7BA55001B8E17 /* LJSDKGameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LJSDKGameBoard.h; path = Classes/LJSDKGameBoard.h; sourceTree = "<group>"; };
@@ -285,6 +293,15 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		411807BD15C1C6C500FB5065 /* Certificates */ = {
+			isa = PBXGroup;
+			children = (
+				411807BE15C1C6DD00FB5065 /* crt.der */,
+			);
+			name = Certificates;
+			path = Resources/Backgrounds;
+			sourceTree = "<group>";
+		};
 		41218F6315C050D0003700F1 /* Paypal */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,7 +360,6 @@
 			children = (
 				41DB98F415B7BA55001B8E17 /* LJAppDelegate.h */,
 				41DB98F515B7BA55001B8E17 /* LJAppDelegate.m */,
-				41218F6315C050D0003700F1 /* Paypal */,
 				41E8AE8415B88A500017E28D /* LJFormBuilder.h */,
 				41E8AE8515B88A500017E28D /* LJFormBuilder.m */,
 				41E8AE8D15B88C600017E28D /* LJStorePopUpView.h */,
@@ -358,14 +374,15 @@
 				41DB98F715B7BA55001B8E17 /* LJFlipViewController.m */,
 				41DB98F815B7BA55001B8E17 /* LJMainViewController.h */,
 				41DB98F915B7BA55001B8E17 /* LJMainViewController.m */,
-				41DB98FA15B7BA55001B8E17 /* LJNetworkDelegate.h */,
-				41DB98FB15B7BA55001B8E17 /* LJNetworkDelegate.m */,
+				41DB98FA15B7BA55001B8E17 /* LJNetworkService.h */,
+				41DB98FB15B7BA55001B8E17 /* LJNetworkService.m */,
 				41DB98FC15B7BA55001B8E17 /* LJPopupView.h */,
 				41DB98FD15B7BA55001B8E17 /* LJPopupView.m */,
 				41DB98FE15B7BA55001B8E17 /* LJSDKGameBoard.h */,
 				41DB98FF15B7BA55001B8E17 /* LJSDKGameBoard.m */,
 				41DB990015B7BA55001B8E17 /* LJSDKSolver.h */,
 				41DB990115B7BA55001B8E17 /* LJSDKSolver.m */,
+				41218F6315C050D0003700F1 /* Paypal */,
 				4109E9D715BF5753007A7B43 /* Categories */,
 				4177D20F15B70E8F00E4A543 /* Supporting Files */,
 			);
@@ -375,6 +392,7 @@
 		4177D20F15B70E8F00E4A543 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				411807BD15C1C6C500FB5065 /* Certificates */,
 				41DB990C15B7BA9B001B8E17 /* Backgrounds */,
 				41DB993215B7BA9B001B8E17 /* Fonts */,
 				41DB994915B7BA9C001B8E17 /* Images */,
@@ -471,7 +489,10 @@
 		41DB994915B7BA9C001B8E17 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				41218F6415C064AC003700F1 /* pop_over_tshirt.png */,
 				41DB994A15B7BA9C001B8E17 /* Achievement.png */,
+				41218F6615C06688003700F1 /* size_background.png */,
+				41218F6F15C07B3A003700F1 /* form_bg.png */,
 				41DB994B15B7BA9C001B8E17 /* Achievement@2x.png */,
 				41DB994C15B7BA9C001B8E17 /* back_footer.png */,
 				41DB994D15B7BA9C001B8E17 /* Clock.png */,
@@ -646,6 +667,10 @@
 				41E8AE9915B8AA9D0017E28D /* loopjoy_shirt.png in Resources */,
 				41E8AE9D15B8AD880017E28D /* price_tag.png in Resources */,
 				4133F31015BDEBB8001BDA33 /* buynow.png in Resources */,
+				41218F6515C064AC003700F1 /* pop_over_tshirt.png in Resources */,
+				41218F6715C06688003700F1 /* size_background.png in Resources */,
+				41218F7015C07B3A003700F1 /* form_bg.png in Resources */,
+				411807BF15C1C6DD00FB5065 /* crt.der in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,7 +688,7 @@
 				41DB990515B7BA55001B8E17 /* LJAppDelegate.m in Sources */,
 				41DB990615B7BA55001B8E17 /* LJFlipViewController.m in Sources */,
 				41F455FA15B7BC9C00A15362 /* LJMainViewController.m in Sources */,
-				41DB990815B7BA55001B8E17 /* LJNetworkDelegate.m in Sources */,
+				41DB990815B7BA55001B8E17 /* LJNetworkService.m in Sources */,
 				41DB990915B7BA55001B8E17 /* LJPopupView.m in Sources */,
 				41DB990A15B7BA55001B8E17 /* LJSDKGameBoard.m in Sources */,
 				41DB990B15B7BA55001B8E17 /* LJSDKSolver.m in Sources */,

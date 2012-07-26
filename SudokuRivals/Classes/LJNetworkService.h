@@ -17,7 +17,7 @@ typedef enum
     URLRequestDELETE = 4,
 } URLRequestType;
 
-@interface LJNetworkDelegate : NSObject<NSURLConnectionDelegate>{
+@interface LJNetworkService : NSObject{
     NSString *address;
     NSString *requestString;
     NSURLConnection *connection;
@@ -26,7 +26,9 @@ typedef enum
     NSMutableDictionary *params;
     NSMutableDictionary *headers;
     
-    id<NSURLConnectionDelegate> thisDelegate;
+    id thisDelegate;
+    
+    CFArrayRef certs;
 }
 - (id)initWithAddress:(NSString *)address :(URLRequestType)requestType delegate:(id<NSURLConnectionDelegate>)theDelegate;
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;

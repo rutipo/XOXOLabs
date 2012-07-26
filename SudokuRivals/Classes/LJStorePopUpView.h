@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "LJNetworkDelegate.h"
+
+#import "PayPal.h"
 
 #define STREET_ADDRESS_FIELD_TAG 22
 #define CITY_FIELD_TAG 23
@@ -17,7 +18,7 @@
 #define EMAIL_FIELD_TAG 27
 
 
-@interface LJStorePopUpView : UIView <UITextFieldDelegate, UIPickerViewDelegate, NSURLConnectionDelegate>{
+@interface LJStorePopUpView : UIView <UITextFieldDelegate, UIPickerViewDelegate, NSURLConnectionDelegate, PayPalPaymentDelegate>{
     NSMutableArray *pickerChoices;
     
     NSString *streetAddressFieldText;
@@ -34,4 +35,8 @@
 }
 - (void)dismissActionSheet;
 - (void)dismissForm;
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection;
 @end
