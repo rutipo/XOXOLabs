@@ -1,3 +1,4 @@
+
 //
 //  LJStorePopUpView.h
 //  SudokuRivals
@@ -7,9 +8,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 
 #import "PayPal.h"
+#import "LJTouchView.h"
 
 #define STREET_ADDRESS_FIELD_TAG 22
 #define CITY_FIELD_TAG 23
@@ -18,7 +21,7 @@
 #define EMAIL_FIELD_TAG 27
 
 
-@interface LJStorePopUpView : UIView <UITextFieldDelegate, UIPickerViewDelegate, NSURLConnectionDelegate, PayPalPaymentDelegate>{
+@interface LJStorePopUpView : UIView <UITextFieldDelegate, UIPickerViewDelegate, NSURLConnectionDelegate, PayPalPaymentDelegate, LJTouchUIViewDelegate>{
     NSMutableArray *pickerChoices;
     
     NSString *streetAddressFieldText;
@@ -30,8 +33,14 @@
     
     UIActionSheet *actionSheet;
     
+    LJTouchUIView *touchView;
     UIView *formView;
     UIButton *sizeButton;
+    UIButton *sizeButtonXS;
+    UIButton *sizeButtonS;
+    UIButton *sizeButtonM;
+    UIButton *sizeButtonL;
+    UIButton *sizeButtonXL;
 }
 - (void)dismissActionSheet;
 - (void)dismissForm;

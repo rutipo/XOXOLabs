@@ -286,8 +286,14 @@ static LJMainViewController *_sharedController = nil;
     prefsButton.tag = 1;
     
     [mainMenu addSubview:prefsButton];
-    
-    UIButton *buyNow = [self createButtonWithFrame:CGRectMake(mainMenu.frame.origin.x + 10, mainMenu.frame.size.height - 110, 85, 75) title:nil image:@"buynow.png" font:otherButtonFont textColor:[UIColor blackColor] target:self action:@selector(showStore:)];
+    UIButton *buyNow;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    {
+        buyNow = [self createButtonWithFrame:CGRectMake(mainMenu.frame.origin.x + 10, mainMenu.frame.size.height-250, (85) * 3, (75) * 3) title:nil image:@"buynowlarge.png" font:otherButtonFont textColor:[UIColor blackColor] target:self action:@selector(showStore:)];
+    }
+    else{
+        buyNow = [self createButtonWithFrame:CGRectMake(mainMenu.frame.origin.x + 10, mainMenu.frame.size.height - 110, 85, 75) title:nil image:@"buynow.png" font:otherButtonFont textColor:[UIColor blackColor] target:self action:@selector(showStore:)];
+    }
     [mainMenu addSubview:buyNow];
     
     

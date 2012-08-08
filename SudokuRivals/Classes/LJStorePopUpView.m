@@ -19,15 +19,130 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+
+        
         //UITextField *textField;
         UILabel *label;
         CGFloat yPos;
         int rowCount = 0;
         int heightOffset = 160;
         
-        
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+        {
+            formView = [[UIView alloc] initWithFrame:CGRectMake(95,155,590,610)];
+            touchView = [[LJTouchUIView alloc ] initWithFrame:CGRectMake(95,155,590,610)];
+            [touchView setDelegate:self];
+            UIImage *backgroundImage = [UIImage imageNamed:@"form_bg_large.png"];
+            formView.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+            formView.alpha = 1;
+            
+            //LoopJoy "Get a Shirt!" text
+            label = [[UILabel alloc] initWithFrame:CGRectMake(108, 25, 375, 32)];
+            label.text = @"Get a LoopJoy T-Shirt!";
+            label.textColor = [UIColor whiteColor];
+            label.font = [UIFont fontWithName:@"Gotham-Black" size:30];
+            label.textAlignment = UITextAlignmentCenter;
+            label.backgroundColor = [UIColor clearColor];
+            [formView addSubview:label];
+            
+            //LoopJoy Shirt and Price Tag
+            UIView *shirtView = [[UIView alloc] initWithFrame:CGRectMake(185,100,230,226)];
+            backgroundImage = [UIImage imageNamed:@"shirt_large.png"];
+            shirtView.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
+            shirtView.alpha = 1;
+            [formView addSubview:shirtView];
+            
+            rowCount ++;
+            yPos = 400;
+            
+            //LoopJoy Size Tag & Button
+            label = [[UILabel alloc] initWithFrame:CGRectMake(80, yPos - 30, 110, 30)];
+            label.text = @"Size: ";
+            label.textColor = [UIColor whiteColor];
+            label.font = [UIFont systemFontOfSize:24.];
+            label.textAlignment = UITextAlignmentRight;
+            label.backgroundColor = [UIColor clearColor];
+            [formView addSubview:label];
+            
+            int xOffset = 0;
+            
+            sizeButtonXS = [UIButton buttonWithType:UIButtonTypeCustom];
+            [sizeButtonXS addTarget:self action:@selector(displayPicker:) forControlEvents:UIControlEventTouchUpInside];
+            sizeButtonXS.frame = CGRectMake(195 + xOffset, yPos - 35, 52, 52);
+            [sizeButtonXS setTitle:@"XS" forState:UIControlStateNormal];
+            sizeButtonXS.titleLabel.textColor = [UIColor whiteColor];
+            sizeButtonXS.titleLabel.backgroundColor = [UIColor clearColor];
+            sizeButtonXS.titleLabel.font = [UIFont fontWithName:@"Gotham-Black" size:26];
+            sizeButtonXS.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ipad_size_button_selected.png"]];
+            sizeButtonXS.titleLabel.textAlignment = UITextAlignmentRight;
+            [formView addSubview:sizeButtonXS];
+            xOffset += 50;
+            
+            sizeButtonS = [UIButton buttonWithType:UIButtonTypeCustom];
+            [sizeButtonS addTarget:self action:@selector(displayPicker:) forControlEvents:UIControlEventTouchUpInside];
+            sizeButtonS.frame = CGRectMake(195 + xOffset, yPos - 35, 52, 52);
+            [sizeButtonS setTitle:@"XS" forState:UIControlStateNormal];
+            sizeButtonS.titleLabel.textColor = [UIColor whiteColor];
+            sizeButtonS.titleLabel.backgroundColor = [UIColor clearColor];
+            sizeButtonS.titleLabel.font = [UIFont fontWithName:@"Gotham-Black" size:26];
+            [sizeButtonS setBackgroundImage:[UIImage imageNamed:@"ipad_size_button_unselected.png"] forState:UIControlStateNormal];
+            sizeButtonS.titleLabel.textAlignment = UITextAlignmentRight;
+            [formView addSubview:sizeButtonS];
+            xOffset += 50;
+            
+            sizeButtonM = [UIButton buttonWithType:UIButtonTypeCustom];
+            [sizeButtonM addTarget:self action:@selector(displayPicker:) forControlEvents:UIControlEventTouchUpInside];
+            sizeButtonM.frame = CGRectMake(195 + xOffset, yPos - 35, 52, 52);
+            [sizeButtonM setTitle:@"M" forState:UIControlStateNormal];
+            sizeButtonM.titleLabel.textColor = [UIColor whiteColor];
+            sizeButtonM.titleLabel.backgroundColor = [UIColor clearColor];
+            sizeButtonM.titleLabel.font = [UIFont fontWithName:@"Gotham-Black" size:26];
+            [sizeButtonM setBackgroundImage:[UIImage imageNamed:@"ipad_size_button_unselected.png"] forState:UIControlStateNormal];
+            sizeButtonM.titleLabel.textAlignment = UITextAlignmentRight;
+            [formView addSubview:sizeButtonM];
+            xOffset += 50;
+            
+            sizeButtonL = [UIButton buttonWithType:UIButtonTypeCustom];
+            [sizeButtonL addTarget:self action:@selector(displayPicker:) forControlEvents:UIControlEventTouchUpInside];
+            sizeButtonL.frame = CGRectMake(195 + xOffset, yPos - 35, 52, 52);
+            [sizeButtonL setTitle:@"L" forState:UIControlStateNormal];
+            sizeButtonL.titleLabel.textColor = [UIColor whiteColor];
+            sizeButtonL.titleLabel.backgroundColor = [UIColor clearColor];
+            sizeButtonL.titleLabel.font = [UIFont fontWithName:@"Gotham-Black" size:26];
+            [sizeButtonL setBackgroundImage:[UIImage imageNamed:@"ipad_size_button_unselected.png"] forState:UIControlStateNormal];
+            sizeButtonL.titleLabel.textAlignment = UITextAlignmentRight;
+            [formView addSubview:sizeButtonL];
+            xOffset += 50;
+            
+            sizeButtonXL = [UIButton buttonWithType:UIButtonTypeCustom];
+            [sizeButtonXL addTarget:self action:@selector(displayPicker:) forControlEvents:UIControlEventTouchUpInside];
+            sizeButtonXL.frame = CGRectMake(195 + xOffset, yPos - 35, 52, 52);
+            [sizeButtonXL setTitle:@"XL" forState:UIControlStateNormal];
+            sizeButtonXL.titleLabel.textColor = [UIColor whiteColor];
+            sizeButtonXL.titleLabel.backgroundColor = [UIColor clearColor];
+            sizeButtonXL.titleLabel.font = [UIFont fontWithName:@"Gotham-Black" size:26];
+            [sizeButtonXL setBackgroundImage:[UIImage imageNamed:@"ipad_size_button_unselected.png"] forState:UIControlStateNormal];
+            sizeButtonXL.titleLabel.textAlignment = UITextAlignmentRight;
+            [formView addSubview:sizeButtonXL];
+            
+            rowCount++;
+            
+            [PayPal initializeWithAppID:@"APP-09B355920Y2948247" forEnvironment:ENV_LIVE];
+            [PayPal getPayPalInst].shippingEnabled = true;
+            UIButton *button = [[PayPal getPayPalInst] getPayButtonWithTarget:self andAction:@selector(payWithPayPal) andButtonType:BUTTON_278x43];
+            
+            CGRect frame = button.frame;
+            frame.origin.x = round((formView.frame.size.width - button.frame.size.width) / 2.);
+            frame.origin.y = round(yPos + button.frame.size.height/2 + 10);
+            button.frame = frame;
+            [formView addSubview:button];
+            
+        }
+        else {
         //Initialize Form View
         formView = [[UIView alloc] initWithFrame:CGRectMake(15,60,280,320)];
+        touchView = [[LJTouchUIView alloc ] initWithFrame:CGRectMake(15,60,280,320)];
+        [touchView setDelegate:self];
         UIImage *backgroundImage = [UIImage imageNamed:@"form_bg.png"];
         formView.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
         formView.alpha = 1;
@@ -60,7 +175,7 @@
         label.backgroundColor = [UIColor clearColor];
         [formView addSubview:label];
         
-        sizeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        sizeButtonXS = [UIButton buttonWithType:UIButtonTypeCustom];
         [sizeButton addTarget:self action:@selector(displayPicker) forControlEvents:UIControlEventTouchUpInside];
         sizeButton.frame = CGRectMake(115,yPos,126,31);
         [sizeButton setTitle:@"Pick a size | ▾" forState:UIControlStateNormal];
@@ -73,7 +188,7 @@
         
         rowCount++;
         
-        [PayPal initializeWithAppID:@"APP-80W284485P519543T" forEnvironment:ENV_SANDBOX];
+        [PayPal initializeWithAppID:@"APP-09B355920Y2948247" forEnvironment:ENV_LIVE];
         [PayPal getPayPalInst].shippingEnabled = true;
         UIButton *button = [[PayPal getPayPalInst] getPayButtonWithTarget:self andAction:@selector(payWithPayPal) andButtonType:BUTTON_194x37];
         
@@ -82,11 +197,10 @@
         frame.origin.y = round(yPos + button.frame.size.height/2 + 10);
         button.frame = frame;
         [formView addSubview:button];
+        }
     
         
-    
-        
-        
+        [self addSubview:touchView];
         [self addSubview:formView];
         
     }
@@ -94,10 +208,11 @@
 }
 
 -(void)payWithPayPal{
+        [[LJMainViewController sharedController] clear];
     PayPalPayment *payment = [[PayPalPayment alloc] init];
-    payment.subTotal = [NSDecimalNumber decimalNumberWithString:@"10"];
-    payment.recipient = @"jimbea_1343242678_biz@gmail.com";
-    payment.merchantName = @"LoopJoy";
+    payment.subTotal = [NSDecimalNumber decimalNumberWithString:@"17"];
+    payment.recipient = @"ruti@loopjoy.com";
+    payment.merchantName = @"Finger Olympics";
     payment.paymentCurrency = @"USD";
     [[PayPal getPayPalInst] checkoutWithPayment:payment];
 }
@@ -129,25 +244,6 @@
 
 -(void)displayPicker
 {
-//    UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0,480,320,200)];
-//    pickerView.delegate = self;
-//    pickerView.showsSelectionIndicator = TRUE;
-//    pickerView.alpha = 0;
-//    
-//    pickerChoices = [[NSMutableArray alloc] init];
-//    [pickerChoices addObject:@"Small"];
-//    [pickerChoices addObject:@"Medium"];
-//    [pickerChoices addObject:@"Large"];
-//    [pickerChoices addObject:@"Extra-Large"];
-//    
-//    [UIView beginAnimations:nil context:nil];
-//    [UIView setAnimationDuration:0.6];
-//    CGAffineTransform transfrom = CGAffineTransformMakeTranslation(0, -200);
-//    pickerView.transform = transfrom;
-//    pickerView.alpha = 1;
-//    [self addSubview:pickerView];
-//    [UIView commitAnimations];
-    
     actionSheet = [[UIActionSheet alloc] initWithTitle:nil 
                                                              delegate:nil
                                                     cancelButtonTitle:nil
@@ -181,17 +277,41 @@
     [actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
     
     [actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
-    
-    
-    
-    
+}
+
+- (void)radioPicker:(id)sender
+{
+    switch ([sender tag]){
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4: 
+            break;
+        case 5:
+            break;
+    }
+}
+
+- (void) uiViewTouched:(BOOL)wasInside
+{
+    if( wasInside ){
+    }
+    else{
+        [[LJMainViewController sharedController] clear];
+    }
 }
 
 - (void)paymentSuccessWithKey:(NSString *)payKey andStatus:(PayPalPaymentStatus)paymentStatus{[self dismissForm];}
-- (void)paymentFailedWithCorrelationID:(NSString *)correlationID{[self dismissForm];}
-- (void)paymentCanceled{[self dismissForm];}
-- (void)paymentLibraryExit{[self dismissForm];}
 
+- (void)paymentFailedWithCorrelationID:(NSString *)correlationID{//[self dismissForm];}
+}
+- (void)paymentCanceled{//[self dismissForm];}
+}
+- (void)paymentLibraryExit{//[self dismissForm];}
+}
 - (void)dismissForm{
     NSString *messageString = [NSString stringWithFormat:@"Thanks for your Order! You will recieve a confirmation email shortly"]; 
     LJNetworkService *networkService = [[LJNetworkService alloc] initWithAddress:@"https://localhost:3000/orders" :URLRequestPOST delegate:self];
