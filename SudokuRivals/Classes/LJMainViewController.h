@@ -9,10 +9,11 @@
 #import <GameKit/GameKit.h>
 #import "LJSDKGameBoard.h"
 #import "LJFlipViewController.h"
+#import "LoopJoyStore.h"
 
 @class LJSDKGameBoard;
 
-@interface LJMainViewController : UIViewController <UIAlertViewDelegate, GKAchievementViewControllerDelegate, LJFlipViewControllerDelegate>
+@interface LJMainViewController : UIViewController <UIAlertViewDelegate, GKAchievementViewControllerDelegate, LJFlipViewControllerDelegate, LoopJoyStoreDelegate>
 {
     UIView *containerView;
     UIView *mainMenu;

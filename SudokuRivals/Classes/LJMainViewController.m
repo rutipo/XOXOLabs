@@ -13,7 +13,8 @@
 #import "LJAppDelegate.h"
 #import "LJSDKGameBoard.h"
 #import "LJPopupView.h"
-#import "LJStorePopUpView.h"
+
+
 
 
 @interface LJMainViewController (Private)
@@ -88,7 +89,7 @@ static LJMainViewController *_sharedController = nil;
 }
 
 - (void)showStore:(id)sender{
-    [containerView addSubview:[[LJStorePopUpView alloc] initWithFrame:mainMenu.frame]];
+    //[containerView addSubview:[[LJStorePopUpView alloc] initWithFrame:mainMenu.frame]];
 }
 
 - (void)showAchievements:(id)sender
@@ -289,7 +290,10 @@ static LJMainViewController *_sharedController = nil;
     UIButton *buyNow;
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
     {
-        buyNow = [self createButtonWithFrame:CGRectMake(mainMenu.frame.origin.x + 10, mainMenu.frame.size.height-250, (85) * 3, (75) * 3) title:nil image:@"buynowlarge.png" font:otherButtonFont textColor:[UIColor blackColor] target:self action:@selector(showStore:)];
+        //[[LoopJoyStore alloc] initializeWithDevID:@"MyID" forEnv:LJ_ENV_LIVE];
+       // buyNow = [[LoopJoyStore sharedInstance] getLJButtonWithDelegate:self andAction:@selector(showStore:) andButtonType:LJ_BUTTON_IPAD];
+        
+     //   buyNow = [self createButtonWithFrame:CGRectMake(mainMenu.frame.origin.x + 10, mainMenu.frame.size.height-250, (85) * 3, (75) * 3) title:nil image:@"buynowlarge.png" font:otherButtonFont textColor:[UIColor blackColor] target:self action:@selector(showStore:)];
     }
     else{
         buyNow = [self createButtonWithFrame:CGRectMake(mainMenu.frame.origin.x + 10, mainMenu.frame.size.height - 110, 85, 75) title:nil image:@"buynow.png" font:otherButtonFont textColor:[UIColor blackColor] target:self action:@selector(showStore:)];

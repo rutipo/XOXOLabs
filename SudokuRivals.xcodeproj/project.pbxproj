@@ -8,12 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4109E9D615BF5718007A7B43 /* NSString+URLEncodedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4109E9D515BF5718007A7B43 /* NSString+URLEncodedString.m */; };
-		410AB53C15D24DAA00E6C868 /* ipad_500x500_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 410AB53715D24DAA00E6C868 /* ipad_500x500_background.png */; };
 		410AB53D15D24DAA00E6C868 /* ipad_backpack_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 410AB53815D24DAA00E6C868 /* ipad_backpack_white.png */; };
 		410AB53E15D24DAA00E6C868 /* ipad_hat_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 410AB53915D24DAA00E6C868 /* ipad_hat_white.png */; };
 		410AB53F15D24DAA00E6C868 /* ipad_iphoneCase_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 410AB53A15D24DAA00E6C868 /* ipad_iphoneCase_white.png */; };
 		410AB54015D24DAA00E6C868 /* ipad_water_bottle_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 410AB53B15D24DAA00E6C868 /* ipad_water_bottle_white.png */; };
-		410ABA6C15D06FE50088F08D /* LJTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 410ABA6B15D06FE40088F08D /* LJTouchView.m */; };
 		410ABA7015D073BF0088F08D /* ipad_size_button_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 410ABA6E15D073BF0088F08D /* ipad_size_button_selected.png */; };
 		410ABA7115D073BF0088F08D /* ipad_size_button_unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 410ABA6F15D073BF0088F08D /* ipad_size_button_unselected.png */; };
 		410ABA7315D078070088F08D /* buynowlarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 410ABA7215D078070088F08D /* buynowlarge.png */; };
@@ -45,6 +43,7 @@
 		4177D20D15B70E8F00E4A543 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4177D20C15B70E8F00E4A543 /* CoreGraphics.framework */; };
 		4177D21315B70E8F00E4A543 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4177D21115B70E8F00E4A543 /* InfoPlist.strings */; };
 		4177D21515B70E8F00E4A543 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4177D21415B70E8F00E4A543 /* main.m */; };
+		41887BE215DB3AD0000CA353 /* libLJStore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41887BE115DB3AD0000CA353 /* libLJStore.a */; };
 		41DB98CC15B7B8F6001B8E17 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DB98CB15B7B8F6001B8E17 /* QuartzCore.framework */; };
 		41DB98CE15B7B8FD001B8E17 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DB98CD15B7B8FD001B8E17 /* GameKit.framework */; };
 		41DB990215B7BA55001B8E17 /* GKHelperDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DB98EF15B7BA55001B8E17 /* GKHelperDelegate.m */; };
@@ -56,8 +55,6 @@
 		41DB990915B7BA55001B8E17 /* LJPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DB98FD15B7BA55001B8E17 /* LJPopupView.m */; };
 		41DB990A15B7BA55001B8E17 /* LJSDKGameBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DB98FF15B7BA55001B8E17 /* LJSDKGameBoard.m */; };
 		41DB990B15B7BA55001B8E17 /* LJSDKSolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DB990115B7BA55001B8E17 /* LJSDKSolver.m */; };
-		41E8AE8615B88A500017E28D /* LJFormBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E8AE8515B88A500017E28D /* LJFormBuilder.m */; };
-		41E8AE8F15B88C600017E28D /* LJStorePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41E8AE8E15B88C600017E28D /* LJStorePopUpView.m */; };
 		41E8AE9115B8909D0017E28D /* form_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E8AE9015B8909D0017E28D /* form_background.png */; };
 		41E8AE9715B8A7CD0017E28D /* buy_menu_dropshadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E8AE9615B8A7CD0017E28D /* buy_menu_dropshadow.png */; };
 		41E8AE9915B8AA9D0017E28D /* loopjoy_shirt.png in Resources */ = {isa = PBXBuildFile; fileRef = 41E8AE9815B8AA9D0017E28D /* loopjoy_shirt.png */; };
@@ -145,13 +142,10 @@
 /* Begin PBXFileReference section */
 		4109E9D415BF5718007A7B43 /* NSString+URLEncodedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+URLEncodedString.h"; path = "Classes/NSString+URLEncodedString.h"; sourceTree = "<group>"; };
 		4109E9D515BF5718007A7B43 /* NSString+URLEncodedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+URLEncodedString.m"; path = "Classes/NSString+URLEncodedString.m"; sourceTree = "<group>"; };
-		410AB53715D24DAA00E6C868 /* ipad_500x500_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ipad_500x500_background.png; path = Framework_default_images/ipad_500x500_background.png; sourceTree = "<group>"; };
 		410AB53815D24DAA00E6C868 /* ipad_backpack_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ipad_backpack_white.png; path = Framework_default_images/ipad_backpack_white.png; sourceTree = "<group>"; };
 		410AB53915D24DAA00E6C868 /* ipad_hat_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ipad_hat_white.png; path = Framework_default_images/ipad_hat_white.png; sourceTree = "<group>"; };
 		410AB53A15D24DAA00E6C868 /* ipad_iphoneCase_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ipad_iphoneCase_white.png; path = Framework_default_images/ipad_iphoneCase_white.png; sourceTree = "<group>"; };
 		410AB53B15D24DAA00E6C868 /* ipad_water_bottle_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ipad_water_bottle_white.png; path = Framework_default_images/ipad_water_bottle_white.png; sourceTree = "<group>"; };
-		410ABA6A15D06FE40088F08D /* LJTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LJTouchView.h; path = Classes/LJTouchView.h; sourceTree = "<group>"; };
-		410ABA6B15D06FE40088F08D /* LJTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LJTouchView.m; path = Classes/LJTouchView.m; sourceTree = "<group>"; };
 		410ABA6E15D073BF0088F08D /* ipad_size_button_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad_size_button_selected.png; sourceTree = "<group>"; };
 		410ABA6F15D073BF0088F08D /* ipad_size_button_unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad_size_button_unselected.png; sourceTree = "<group>"; };
 		410ABA7215D078070088F08D /* buynowlarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buynowlarge.png; sourceTree = "<group>"; };
@@ -205,6 +199,7 @@
 		4177D22A15B70E8F00E4A543 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4177D22C15B70E8F00E4A543 /* SudokuRivalsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SudokuRivalsTests.h; sourceTree = "<group>"; };
 		4177D22D15B70E8F00E4A543 /* SudokuRivalsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SudokuRivalsTests.m; sourceTree = "<group>"; };
+		41887BE115DB3AD0000CA353 /* libLJStore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLJStore.a; sourceTree = "<group>"; };
 		41DB98CB15B7B8F6001B8E17 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		41DB98CD15B7B8FD001B8E17 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		41DB98EE15B7BA55001B8E17 /* GKHelperDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKHelperDelegate.h; path = Classes/GKHelperDelegate.h; sourceTree = "<group>"; };
@@ -304,14 +299,11 @@
 		41DB996A15B7BA9C001B8E17 /* Sudoku@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sudoku@2x.png"; sourceTree = "<group>"; };
 		41DB996B15B7BA9C001B8E17 /* Sudoku~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sudoku~ipad.png"; sourceTree = "<group>"; };
 		41DB996C15B7BA9C001B8E17 /* trophy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trophy.png; sourceTree = "<group>"; };
-		41E8AE8415B88A500017E28D /* LJFormBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LJFormBuilder.h; path = Classes/LJFormBuilder.h; sourceTree = "<group>"; };
-		41E8AE8515B88A500017E28D /* LJFormBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LJFormBuilder.m; path = Classes/LJFormBuilder.m; sourceTree = "<group>"; };
-		41E8AE8D15B88C600017E28D /* LJStorePopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LJStorePopUpView.h; path = Classes/LJStorePopUpView.h; sourceTree = "<group>"; };
-		41E8AE8E15B88C600017E28D /* LJStorePopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LJStorePopUpView.m; path = Classes/LJStorePopUpView.m; sourceTree = "<group>"; };
 		41E8AE9015B8909D0017E28D /* form_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = form_background.png; sourceTree = "<group>"; };
 		41E8AE9615B8A7CD0017E28D /* buy_menu_dropshadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buy_menu_dropshadow.png; sourceTree = "<group>"; };
 		41E8AE9815B8AA9D0017E28D /* loopjoy_shirt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loopjoy_shirt.png; sourceTree = "<group>"; };
 		41E8AE9C15B8AD880017E28D /* price_tag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = price_tag.png; sourceTree = "<group>"; };
+		41F9CC2E15DAAC1B00133C73 /* LoopJoyStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopJoyStore.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,6 +320,7 @@
 				41218F5515C04C23003700F1 /* libz.dylib in Frameworks */,
 				41218F5315C04C12003700F1 /* libxml2.dylib in Frameworks */,
 				41218F6215C050C2003700F1 /* libPayPalMPL.a in Frameworks */,
+				41887BE215DB3AD0000CA353 /* libLJStore.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,12 +403,6 @@
 			children = (
 				41DB98F415B7BA55001B8E17 /* LJAppDelegate.h */,
 				41DB98F515B7BA55001B8E17 /* LJAppDelegate.m */,
-				41E8AE8415B88A500017E28D /* LJFormBuilder.h */,
-				41E8AE8515B88A500017E28D /* LJFormBuilder.m */,
-				41E8AE8D15B88C600017E28D /* LJStorePopUpView.h */,
-				41E8AE8E15B88C600017E28D /* LJStorePopUpView.m */,
-				410ABA6A15D06FE40088F08D /* LJTouchView.h */,
-				410ABA6B15D06FE40088F08D /* LJTouchView.m */,
 				41DB98EE15B7BA55001B8E17 /* GKHelperDelegate.h */,
 				41DB98EF15B7BA55001B8E17 /* GKHelperDelegate.m */,
 				41DB98F015B7BA55001B8E17 /* GKNotification.h */,
@@ -434,6 +421,8 @@
 				41DB98FF15B7BA55001B8E17 /* LJSDKGameBoard.m */,
 				41DB990015B7BA55001B8E17 /* LJSDKSolver.h */,
 				41DB990115B7BA55001B8E17 /* LJSDKSolver.m */,
+				41F9CC2E15DAAC1B00133C73 /* LoopJoyStore.h */,
+				41887BE115DB3AD0000CA353 /* libLJStore.a */,
 				41218F6315C050D0003700F1 /* Paypal */,
 				4109E9D715BF5753007A7B43 /* Categories */,
 				4177D20F15B70E8F00E4A543 /* Supporting Files */,
@@ -551,7 +540,6 @@
 				41218F6415C064AC003700F1 /* pop_over_tshirt.png */,
 				4167D4FB15C2CFE600FBA953 /* Default@2x.png */,
 				4167D4F915C2CFCF00FBA953 /* Icon@2x~iphone.png */,
-				410AB53715D24DAA00E6C868 /* ipad_500x500_background.png */,
 				410AB53815D24DAA00E6C868 /* ipad_backpack_white.png */,
 				410AB53915D24DAA00E6C868 /* ipad_hat_white.png */,
 				410AB53A15D24DAA00E6C868 /* ipad_iphoneCase_white.png */,
@@ -765,7 +753,6 @@
 				410ABA7015D073BF0088F08D /* ipad_size_button_selected.png in Resources */,
 				410ABA7115D073BF0088F08D /* ipad_size_button_unselected.png in Resources */,
 				410ABA7315D078070088F08D /* buynowlarge.png in Resources */,
-				410AB53C15D24DAA00E6C868 /* ipad_500x500_background.png in Resources */,
 				410AB53D15D24DAA00E6C868 /* ipad_backpack_white.png in Resources */,
 				410AB53E15D24DAA00E6C868 /* ipad_hat_white.png in Resources */,
 				410AB53F15D24DAA00E6C868 /* ipad_iphoneCase_white.png in Resources */,
@@ -791,10 +778,7 @@
 				41DB990915B7BA55001B8E17 /* LJPopupView.m in Sources */,
 				41DB990A15B7BA55001B8E17 /* LJSDKGameBoard.m in Sources */,
 				41DB990B15B7BA55001B8E17 /* LJSDKSolver.m in Sources */,
-				41E8AE8615B88A500017E28D /* LJFormBuilder.m in Sources */,
-				41E8AE8F15B88C600017E28D /* LJStorePopUpView.m in Sources */,
 				4109E9D615BF5718007A7B43 /* NSString+URLEncodedString.m in Sources */,
-				410ABA6C15D06FE50088F08D /* LJTouchView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -841,6 +825,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -860,6 +845,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -879,6 +865,9 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/SudokuRivals/Classes/Paypal\"",
+					"\"$(SRCROOT)/SudokuRivals/Classes/LoopJoy\"",
+					"\"$(SRCROOT)/SudokuRivals\"",
+					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/Store-cwttpnlstbwdmhgkpxjzpjnfniyf/Build/Products/Debug-iphoneos\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -900,6 +889,9 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/SudokuRivals/Classes/Paypal\"",
+					"\"$(SRCROOT)/SudokuRivals/Classes/LoopJoy\"",
+					"\"$(SRCROOT)/SudokuRivals\"",
+					"\"$(SRCROOT)/../../Library/Developer/Xcode/DerivedData/Store-cwttpnlstbwdmhgkpxjzpjnfniyf/Build/Products/Debug-iphoneos\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

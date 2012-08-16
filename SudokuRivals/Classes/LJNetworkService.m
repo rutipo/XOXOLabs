@@ -7,7 +7,6 @@
 //
 
 #import "LJNetworkService.h"
-#import "LJStorePopUpView.h"
 
 @implementation LJNetworkService
 - (id)initWithAddress:(NSString *)_address :(URLRequestType)requestType delegate:(id<NSURLConnectionDelegate>)theDelegate{
