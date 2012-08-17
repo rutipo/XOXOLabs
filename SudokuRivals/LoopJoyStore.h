@@ -24,8 +24,16 @@ typedef enum{
 } LJEnvironmentType;
 
 typedef enum{
-    LJ_BUTTON_IPHONE,
-    LJ_BUTTON_IPAD,
+    LJ_BUTTON_IPAD_BLACK,
+    LJ_BUTTON_IPHONE_BLACK,
+    LJ_BUTTON_IPAD_BLUE,
+    LJ_BUTTON_IPHONE_BLUE,
+    LJ_BUTTON_IPAD_GREEN,
+    LJ_BUTTON_IPHONE_GREEN,
+    LJ_BUTTON_IPAD_RED,
+    LJ_BUTTON_IPHONE_RED,
+    LJ_BUTTON_IPAD_YELLOW,
+    LJ_BUTTON_IPHONE_YELLOW
 } LJButtonType;
 
 typedef enum{
@@ -46,5 +54,7 @@ typedef enum{
 +(LoopJoyStore *)sharedInstance;
 -(void)initializeWithDevID:(NSString *)devID forEnv:(LJEnvironmentType)envType;
 -(NSString *)getMerchantName;
--(UIButton *)getLJButtonWithDelegate:(const id<LoopJoyStoreDelegate>)delegate andAction:(SEL)action andButtonType:(LJButtonType)buttonType;
+-(UIButton *)getLJButtonForItem:(int)itemID withButtonType:(LJButtonType)buttonType;
+-(UIButton *)getLJButtonForItem:(int)itemID withButtonType:(LJButtonType)buttonType andAction:(SEL)select;
+-(void)showModalForItem:(NSString *)itemID;
 @end
