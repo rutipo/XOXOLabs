@@ -288,23 +288,42 @@ static LJMainViewController *_sharedController = nil;
     
     [mainMenu addSubview:prefsButton];
     UIButton *buyNow;
+    UIButton *buyLater;
+    [LoopJoyStore initWithDevID:@"18" forEnv:LJ_ENV_LIVE];
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
     {
-        int i = 123;
-        [[LoopJoyStore alloc] initializeWithDevID:@"MyID" forEnv:LJ_ENV_LIVE];
-        buyNow = [[LoopJoyStore sharedInstance] getLJButtonForItem:i withButtonType:LJ_BUTTON_IPAD_YELLOW];
+        buyNow = [[LoopJoyStore sharedInstance] getLJButtonForItem:18 withButtonType:LJ_BUTTON_IPAD_YELLOW];
+        buyLater = [[LoopJoyStore sharedInstance] getLJButtonForItem:17 withButtonType:LJ_BUTTON_IPAD_RED];
+        UIAlertView *ljAlert = [[LoopJoyStore sharedInstance] getLJAlertForItem:18 withTitle:@"You just unlocked a new hat" andMessage:@"You're such a good sport"];
+        [ljAlert show];
         
+//        CGRect frame = buyNow.frame;
+//        frame.size = CGSizeMake(99, 136);
+//        frame.origin.x = mainMenu.frame.origin.x + 550;
+//        frame.origin.y = mainMenu.frame.size.height-250; //
+//        buyNow.frame = frame;
+        [mainMenu addSubview:buyNow];
+        
+//        CGRect frame2 = buyLater.frame;
+//        frame2.size = CGSizeMake(99, 136);
+//        frame2.origin.x = mainMenu.frame.origin.x + 550;
+//        frame2.origin.y = mainMenu.frame.size.height-150; //
+//        buyLater.frame = frame2;
+//        [mainMenu addSubview:buyLater];
      //   buyNow = [self createButtonWithFrame:CGRectMake(mainMenu.frame.origin.x + 10, mainMenu.frame.size.height-250, (85) * 3, (75) * 3) title:nil image:@"buynowlarge.png" font:otherButtonFont textColor:[UIColor blackColor] target:self action:@selector(showStore:)];
     }
     else{
-        buyNow = [self createButtonWithFrame:CGRectMake(mainMenu.frame.origin.x + 10, mainMenu.frame.size.height - 110, 85, 75) title:nil image:@"buynow.png" font:otherButtonFont textColor:[UIColor blackColor] target:self action:@selector(showStore:)];
+        buyNow = [[LoopJoyStore sharedInstance] getLJButtonForItem:18 withButtonType:LJ_BUTTON_IPHONE_YELLOW];
+        
+        CGRect frame = buyNow.frame;
+        frame.size = CGSizeMake(40, 120);
+//        frame.origin.x = mainMenu.frame.origin.x + 10;
+//        frame.origin.y = mainMenu.frame.size.height - 110; //
+        buyNow.frame = frame;
+        [mainMenu addSubview:buyNow];
+        //buyNow = [self createButtonWithFrame:CGRectMake(mainMenu.frame.origin.x + 10, mainMenu.frame.size.height - 110, 85, 75) title:nil image:@"buynow.png" font:otherButtonFont textColor:[UIColor blackColor] target:self action:@selector(showStore:)];
     }
-    CGRect frame = buyNow.frame;
-    frame.size = CGSizeMake(99, 136);
-    frame.origin.x = mainMenu.frame.origin.x + 10;
-    frame.origin.y = mainMenu.frame.size.height-250; //
-    buyNow.frame = frame;
-    [mainMenu addSubview:buyNow];
+
     
     
     [mainMenu addSubview:mainLabel];

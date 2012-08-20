@@ -19,7 +19,6 @@
 		41218F5115C04C07003700F1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41218F5015C04C07003700F1 /* Security.framework */; };
 		41218F5315C04C12003700F1 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 41218F5215C04C12003700F1 /* libxml2.dylib */; };
 		41218F5515C04C23003700F1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 41218F5415C04C23003700F1 /* libz.dylib */; };
-		41218F6215C050C2003700F1 /* libPayPalMPL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41218F5615C050C2003700F1 /* libPayPalMPL.a */; };
 		41218F6515C064AC003700F1 /* pop_over_tshirt.png in Resources */ = {isa = PBXBuildFile; fileRef = 41218F6415C064AC003700F1 /* pop_over_tshirt.png */; };
 		41218F6715C06688003700F1 /* size_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 41218F6615C06688003700F1 /* size_background.png */; };
 		41218F7015C07B3A003700F1 /* form_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 41218F6F15C07B3A003700F1 /* form_bg.png */; };
@@ -43,7 +42,7 @@
 		4177D20D15B70E8F00E4A543 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4177D20C15B70E8F00E4A543 /* CoreGraphics.framework */; };
 		4177D21315B70E8F00E4A543 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4177D21115B70E8F00E4A543 /* InfoPlist.strings */; };
 		4177D21515B70E8F00E4A543 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4177D21415B70E8F00E4A543 /* main.m */; };
-		4191057415DEDDA100072335 /* libLJStore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4191057315DEDDA100072335 /* libLJStore.a */; };
+		419CA66D15E2C835004FC045 /* libLJStore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 419CA66C15E2C835004FC045 /* libLJStore.a */; };
 		41DB98CC15B7B8F6001B8E17 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DB98CB15B7B8F6001B8E17 /* QuartzCore.framework */; };
 		41DB98CE15B7B8FD001B8E17 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41DB98CD15B7B8FD001B8E17 /* GameKit.framework */; };
 		41DB990215B7BA55001B8E17 /* GKHelperDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 41DB98EF15B7BA55001B8E17 /* GKHelperDelegate.m */; };
@@ -152,18 +151,6 @@
 		41218F5015C04C07003700F1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		41218F5215C04C12003700F1 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		41218F5415C04C23003700F1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		41218F5615C050C2003700F1 /* libPayPalMPL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPayPalMPL.a; path = Classes/Paypal/libPayPalMPL.a; sourceTree = "<group>"; };
-		41218F5715C050C2003700F1 /* PayPal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPal.h; path = Classes/Paypal/PayPal.h; sourceTree = "<group>"; };
-		41218F5815C050C2003700F1 /* PayPalAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPalAddress.h; path = Classes/Paypal/PayPalAddress.h; sourceTree = "<group>"; };
-		41218F5915C050C2003700F1 /* PayPalAdvancedPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPalAdvancedPayment.h; path = Classes/Paypal/PayPalAdvancedPayment.h; sourceTree = "<group>"; };
-		41218F5A15C050C2003700F1 /* PayPalAmounts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPalAmounts.h; path = Classes/Paypal/PayPalAmounts.h; sourceTree = "<group>"; };
-		41218F5B15C050C2003700F1 /* PayPalContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPalContext.h; path = Classes/Paypal/PayPalContext.h; sourceTree = "<group>"; };
-		41218F5C15C050C2003700F1 /* PayPalInvoiceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPalInvoiceData.h; path = Classes/Paypal/PayPalInvoiceData.h; sourceTree = "<group>"; };
-		41218F5D15C050C2003700F1 /* PayPalInvoiceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPalInvoiceItem.h; path = Classes/Paypal/PayPalInvoiceItem.h; sourceTree = "<group>"; };
-		41218F5E15C050C2003700F1 /* PayPalPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPalPayment.h; path = Classes/Paypal/PayPalPayment.h; sourceTree = "<group>"; };
-		41218F5F15C050C2003700F1 /* PayPalPreapprovalDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPalPreapprovalDetails.h; path = Classes/Paypal/PayPalPreapprovalDetails.h; sourceTree = "<group>"; };
-		41218F6015C050C2003700F1 /* PayPalReceiverAmounts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPalReceiverAmounts.h; path = Classes/Paypal/PayPalReceiverAmounts.h; sourceTree = "<group>"; };
-		41218F6115C050C2003700F1 /* PayPalReceiverPaymentDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PayPalReceiverPaymentDetails.h; path = Classes/Paypal/PayPalReceiverPaymentDetails.h; sourceTree = "<group>"; };
 		41218F6415C064AC003700F1 /* pop_over_tshirt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pop_over_tshirt.png; sourceTree = "<group>"; };
 		41218F6615C06688003700F1 /* size_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = size_background.png; sourceTree = "<group>"; };
 		41218F6F15C07B3A003700F1 /* form_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = form_bg.png; sourceTree = "<group>"; };
@@ -198,8 +185,8 @@
 		4177D22A15B70E8F00E4A543 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4177D22C15B70E8F00E4A543 /* SudokuRivalsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SudokuRivalsTests.h; sourceTree = "<group>"; };
 		4177D22D15B70E8F00E4A543 /* SudokuRivalsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SudokuRivalsTests.m; sourceTree = "<group>"; };
-		4191057315DEDDA100072335 /* libLJStore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLJStore.a; sourceTree = "<group>"; };
-		4191CF4B15DECB84009A8447 /* LoopJoyStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopJoyStore.h; sourceTree = "<group>"; };
+		419CA66C15E2C835004FC045 /* libLJStore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLJStore.a; sourceTree = "<group>"; };
+		41A0CC4715E2A49900E61CF0 /* LoopJoyStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopJoyStore.h; sourceTree = "<group>"; };
 		41DB98CB15B7B8F6001B8E17 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		41DB98CD15B7B8FD001B8E17 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		41DB98EE15B7BA55001B8E17 /* GKHelperDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GKHelperDelegate.h; path = Classes/GKHelperDelegate.h; sourceTree = "<group>"; };
@@ -316,8 +303,7 @@
 				4177D20D15B70E8F00E4A543 /* CoreGraphics.framework in Frameworks */,
 				41218F5515C04C23003700F1 /* libz.dylib in Frameworks */,
 				41218F5315C04C12003700F1 /* libxml2.dylib in Frameworks */,
-				41218F6215C050C2003700F1 /* libPayPalMPL.a in Frameworks */,
-				4191057415DEDDA100072335 /* libLJStore.a in Frameworks */,
+				419CA66D15E2C835004FC045 /* libLJStore.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,18 +331,6 @@
 		41218F6315C050D0003700F1 /* Paypal */ = {
 			isa = PBXGroup;
 			children = (
-				41218F5715C050C2003700F1 /* PayPal.h */,
-				41218F5815C050C2003700F1 /* PayPalAddress.h */,
-				41218F5915C050C2003700F1 /* PayPalAdvancedPayment.h */,
-				41218F5A15C050C2003700F1 /* PayPalAmounts.h */,
-				41218F5B15C050C2003700F1 /* PayPalContext.h */,
-				41218F5C15C050C2003700F1 /* PayPalInvoiceData.h */,
-				41218F5D15C050C2003700F1 /* PayPalInvoiceItem.h */,
-				41218F5E15C050C2003700F1 /* PayPalPayment.h */,
-				41218F5F15C050C2003700F1 /* PayPalPreapprovalDetails.h */,
-				41218F6015C050C2003700F1 /* PayPalReceiverAmounts.h */,
-				41218F6115C050C2003700F1 /* PayPalReceiverPaymentDetails.h */,
-				41218F5615C050C2003700F1 /* libPayPalMPL.a */,
 				41218F5415C04C23003700F1 /* libz.dylib */,
 				41218F5215C04C12003700F1 /* libxml2.dylib */,
 			);
@@ -416,8 +390,8 @@
 				41DB98FF15B7BA55001B8E17 /* LJSDKGameBoard.m */,
 				41DB990015B7BA55001B8E17 /* LJSDKSolver.h */,
 				41DB990115B7BA55001B8E17 /* LJSDKSolver.m */,
-				4191CF4B15DECB84009A8447 /* LoopJoyStore.h */,
-				4191057315DEDDA100072335 /* libLJStore.a */,
+				41A0CC4715E2A49900E61CF0 /* LoopJoyStore.h */,
+				419CA66C15E2C835004FC045 /* libLJStore.a */,
 				41218F6315C050D0003700F1 /* Paypal */,
 				4109E9D715BF5753007A7B43 /* Categories */,
 				4177D20F15B70E8F00E4A543 /* Supporting Files */,
@@ -820,6 +794,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -841,6 +819,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ObjC",
+				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

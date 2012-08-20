@@ -41,7 +41,7 @@ typedef enum{
     LJ_MODAL_VERTICAL,
 } LJModalOrientation;
 
-@interface LoopJoyStore : NSObject <NSURLConnectionDelegate>{
+@interface LoopJoyStore : NSObject <NSURLConnectionDelegate,UIAlertViewDelegate>{
     NSString *_developerID;
     NSString *_merchantName;
     LJEnvironmentType _currentEnv;
@@ -49,12 +49,11 @@ typedef enum{
     LJModalOrientation _currentOrientation;
 }
 
-@property NSMutableDictionary *items;
-
 +(LoopJoyStore *)sharedInstance;
--(void)initializeWithDevID:(NSString *)devID forEnv:(LJEnvironmentType)envType;
++(void)initWithDevID:(NSString *)devID forEnv:(LJEnvironmentType)envType;
 -(NSString *)getMerchantName;
 -(UIButton *)getLJButtonForItem:(int)itemID withButtonType:(LJButtonType)buttonType;
 -(UIButton *)getLJButtonForItem:(int)itemID withButtonType:(LJButtonType)buttonType andAction:(SEL)select;
--(void)showModalForItem:(NSString *)itemID;
+-(UIAlertView *)getLJAlertForItem:(int)itemID withTitle:(NSString *)title andMessage:(NSString *)message;
+-(void)showModalForItem:(int)itemID;
 @end

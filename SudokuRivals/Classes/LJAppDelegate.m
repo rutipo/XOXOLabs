@@ -172,19 +172,19 @@ static LJAppDelegate *sharedHelper = nil;
     
 }
 
--   (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)theData{
-    NSString *result = [[NSString alloc] initWithData:theData encoding:NSUTF8StringEncoding];
-    NSLog(@"String sent from server %@",result);
-    if([result isEqualToString:@"NO"]){
-        //edit [[SDKMainViewController sharedController] setRegistered:FALSE];
-        NSLog(@"String set false");
-    }
-    else{
-        //edit [[SDKMainViewController sharedController] setRegistered:TRUE];
-        NSLog(@"String set True");
-    }
-    
-}
+//-   (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)theData{
+//    NSString *result = [[NSString alloc] initWithData:theData encoding:NSUTF8StringEncoding];
+//    NSLog(@"String sent from server %@",result);
+//    if([result isEqualToString:@"NO"]){
+//        //edit [[SDKMainViewController sharedController] setRegistered:FALSE];
+//        NSLog(@"String set false");
+//    }
+//    else{
+//        //edit [[SDKMainViewController sharedController] setRegistered:TRUE];
+//        NSLog(@"String set True");
+//    }
+//    
+//}
 
 
 - (void)findMatchWithMinPlayers:(int)minPlayers maxPlayers:(int)maxPlayers   
